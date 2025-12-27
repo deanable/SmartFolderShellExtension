@@ -8,13 +8,13 @@ namespace SmartFolder.UI
     public class OptionsForm : Form
     {
         private SmartFolderSettings _settings;
-        private RadioButton rbFirstItem;
-        private RadioButton rbPrompt;
-        private CheckBox chkEnableGrouping;
-        private CheckBox chkYear;
-        private CheckBox chkMonth;
-        private CheckBox chkDay;
-        private ComboBox cmbSecondary;
+        private RadioButton rbFirstItem = null!;
+        private RadioButton rbPrompt = null!;
+        private CheckBox chkEnableGrouping = null!;
+        private CheckBox chkYear = null!;
+        private CheckBox chkMonth = null!;
+        private CheckBox chkDay = null!;
+        private ComboBox cmbSecondary = null!;
 
         public OptionsForm()
         {
@@ -93,7 +93,7 @@ namespace SmartFolder.UI
             ToggleGroupingControls(_settings.EnableGrouping);
         }
 
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void BtnSave_Click(object? sender, EventArgs e)
         {
             _settings.MultiSelectStrategy = rbFirstItem.Checked ? MultiSelectStrategy.UseFirstItemName : MultiSelectStrategy.AlwaysPrompt;
             _settings.EnableGrouping = chkEnableGrouping.Checked;
@@ -101,7 +101,7 @@ namespace SmartFolder.UI
             _settings.GroupByMonth = chkMonth.Checked;
             _settings.GroupByDay = chkDay.Checked;
 
-            if (Enum.TryParse(cmbSecondary.SelectedItem.ToString(), out PropertyGroupingType result))
+            if (cmbSecondary.SelectedItem != null && Enum.TryParse(cmbSecondary.SelectedItem.ToString(), out PropertyGroupingType result))
             {
                 _settings.SecondaryGrouping = result;
             }
