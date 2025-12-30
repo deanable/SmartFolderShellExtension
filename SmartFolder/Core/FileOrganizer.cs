@@ -36,7 +36,9 @@ namespace SmartFolder.Core
             if (fileList.Count == 0) return;
 
             string targetFolderName = "";
-            string sourceDirectory = Path.GetDirectoryName(fileList[0]);
+            string? sourceDirectory = Path.GetDirectoryName(fileList[0]);
+
+            if (sourceDirectory == null) return; // Should not happen for valid files
 
             // Determine Target Folder Name
             if (fileList.Count == 1)

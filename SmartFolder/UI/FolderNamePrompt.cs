@@ -9,7 +9,7 @@ namespace SmartFolder.UI
         private TextBox textBox;
         private Button btnOk;
         private Button btnCancel;
-        public string FolderName { get; private set; }
+        public string FolderName { get; private set; } = string.Empty;
 
         public FolderNamePrompt(string promptText)
         {

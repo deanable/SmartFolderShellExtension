@@ -13,6 +13,7 @@ using SmartFolder.UI;
 namespace SmartFolder.ShellExtension
 {
     [ComVisible(true)]
+    [Guid("3a2869b1-aaba-44ec-918a-75beadf4b7d2")]
     [COMServerAssociation(AssociationType.AllFiles)] // For files
     [COMServerAssociation(AssociationType.Directory)] // For folders
     public class SmartFolderExtension : SharpContextMenu

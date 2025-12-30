@@ -56,7 +56,7 @@ namespace SmartFolder.Core
         {
             try
             {
-                string directory = Path.GetDirectoryName(SettingsPath);
+                string? directory = Path.GetDirectoryName(SettingsPath);
                 if (directory != null && !Directory.Exists(directory))
                 {
                     Directory.CreateDirectory(directory);
